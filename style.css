@@ -82,7 +82,7 @@
 }
 /** Elements */
 html {
-  background-color: #0e0d0d;
+  background-color: #83abf0;
 }
 
 .container {
@@ -99,7 +99,7 @@ html {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-color: #17f517;
+  background-color: #dff517;
   border-radius: 80% 80% 50% 50%;
   z-index: 10;
 }
@@ -132,7 +132,7 @@ html {
 .eye {
   display: block;
   width: 50px;
-  height: 50px;
+  height: 25px;
   border-radius: 50%;
   background-color: #ff55ff;
   overflow: hidden;
@@ -169,7 +169,7 @@ html {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #17f517;
+  background-color: #dff517;
   display: block;
   content: " ";
   height: 0;
@@ -230,7 +230,7 @@ html {
 }
 
 .ear {
-  background-color: #17f517;
+  background-color: #dff517;
   width: 62.5px;
   height: 37.5px;
   border-radius: 30% 30% 50% 50%;
@@ -346,7 +346,7 @@ html {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-color: #17f517;
+  background-color: #dff517;
   width: 175px;
   position: absolute;
   top: 225px;
@@ -368,7 +368,7 @@ html {
 }
 
 .arm {
-  background-color: #17f517;
+  background-color: #dff517;
   width: 75px;
   height: 37.5px;
   border-radius: 30% 30% 50% 50%;
@@ -425,7 +425,7 @@ html {
 }
 
 .foot {
-  background-color: #17f517;
+  background-color: #dff517;
   width: 75px;
   height: 50px;
   border-radius: 40%;
