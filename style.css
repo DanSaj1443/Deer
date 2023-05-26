@@ -173,7 +173,7 @@ html {
   display: block;
   content: " ";
   height: 0;
-  animation: eyelids 4s infinite ease;
+  animation: eyelids 1s infinite ease;
 }
 /* Modif Flo */
 .nose {
