@@ -99,7 +99,7 @@ html {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background-color: #dff517;
+ background-color: #dff517;
   border-radius: 80% 80% 50% 50%;
   z-index: 10;
 }
@@ -169,17 +169,17 @@ html {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #dff517;
+ background-color: red;
   display: block;
   content: " ";
   height: 0;
-  animation: eyelids 4s infinite ease;
+  animation: eyelids 1s infinite ease;
 }
 /* Modif Flo */
 .nose {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: #212121;
   position: absolute;
@@ -230,7 +230,7 @@ html {
 }
 
 .ear {
-  background-color: #dff517;
+ background-color: #dff517;olor: red;
   width: 62.5px;
   height: 37.5px;
   border-radius: 30% 30% 50% 50%;
@@ -462,4 +462,11 @@ html {
   top: 0px;
   left: 25px;
   border-radius: 50% 30%;
+}
+
+.hello{
+  margin-top: 15rem;
+  font-size: 50px;
+  color:#f5f5f5;
+  text-shadow: gold 3px 3px 0px;
 }
