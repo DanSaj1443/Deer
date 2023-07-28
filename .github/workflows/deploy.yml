@@ -1,0 +1,17 @@
+name: Déploiement           # Nom du workflow
+on: 
+    push                    # Événement(s)
+env:
+    USERNAME: dansaj14
+    IMAGE_NAME: deer
+jobs:
+    build-docker-image:     # Nom du job
+        runs-on: ubuntu-latest  # OS utilisé pour executé le job
+        steps:                  # Suite de commandes / tâches à effectuer
+            - name: Check out code
+              uses: actions/checkout@v3
+            - run: docker login -u $USERNAME -p $PASSWORD
+              env:
+                PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
+            - run: docker build -t $USERNAME/$IMAGE_NAME .
+            - run: docker push $USERNAME/$IMAGE_NAME
