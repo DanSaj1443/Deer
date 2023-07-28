@@ -15,3 +15,19 @@ jobs:
                 PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
             - run: docker build -t $USERNAME/$IMAGE_NAME .
             - run: docker push $USERNAME/$IMAGE_NAME
+    PushContainerReadme:
+        runs-on: ubuntu-latest
+        name: Push README to Docker Hub
+        steps:
+          - name: git checkout
+            uses: actions/checkout@v2
+          - name: push README to Dockerhub
+            uses: christian-korneck/update-container-description-action@v1
+            env:
+              DOCKER_USER: my-user
+              DOCKER_PASS: ${{ secrets.DOCKER_HUB_PASSWORD }}
+            with:
+              destination_container_repo: my-user/my-repo
+              provider: dockerhub
+              short_description: 'my short description 😊'
+              readme_file: 'README.md'
