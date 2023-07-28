@@ -1,3 +1,5 @@
-FROM nginx
+FROM nginx:alpine
 
-COPY . /usr/share/nginx/html
+COPY . /usr/share/nginxhtml
+
+CMD nginx -g 'daemon off;'
