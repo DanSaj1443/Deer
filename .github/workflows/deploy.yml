@@ -4,6 +4,7 @@ on:
 env:
     USERNAME: dansaj14
     IMAGE_NAME: deer
+    ENVNAME: dansaj-deer
 jobs:
     build-docker-image:     # Nom du job
         runs-on: ubuntu-latest  # OS utilisé pour executé le job
@@ -21,3 +22,18 @@ jobs:
                 username: ${{env.USERNAME}}
                 password: ${{ secrets.DOCKER_HUB_PASSWORD }}
                 repository: ${{env.USERNAME}}/${{env.IMAGE_NAME}}
+
+    deploy-to-jelastic:
+        runs-on: ubuntu-latest
+        container: mwienk/jelastic-cli  # Image Docker dans laquelle les steps seront exécutées
+        needs: build-docker-image       # Indique qu'il faut attendre le job de build
+        steps:
+            # Petit fixe nécessaire pour la suite
+            - run: ln -s /root/jelastic-cli.jar /github/home/jelastic-cli.jar
+                # Authentification auprès de l'API de Jelastic Infomaniak
+            - run: /root/jelastic/users/authentication/signin --login "$JELASTIC_USERNAME" --password "$JELASTIC_PASSWORD" --platformUrl app.jpc.infomaniak.com
+              env:
+                JELASTIC_USERNAME: ${{ secrets.JELASTIC_USERNAME }}
+                JELASTIC_PASSWORD: ${{ secrets.JELASTIC_PASSWORD }}
+                 # Utilisation de l'API de Jelastic pour redéployer l'image Docker utilisé dans son environnement
+            - run: /root/jelastic/environment/control/redeploycontainersbygroup --envName $ENVNAME --nodeGroup cp --tag latest
